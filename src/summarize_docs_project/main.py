@@ -16,6 +16,7 @@ def run():
     Run the crew.
     """
     inputs = {
+        #You can input a Doc path or URL
         'filepath': "https://arxiv.org/pdf/2408.09869",
     }
     

@@ -6,12 +6,12 @@ from docling.document_converter import DocumentConverter
 
 class File_to_Text_input(BaseModel):
     """Input schema for MyCustomTool."""
-    filepath: str = Field(..., description="O caminho para o documento que será extraído o texto")
+    filepath: str = Field(..., description="O caminho para o documento ou URL de um site do qual será extraído o texto")
 
 class File_to_Text(BaseTool):
     name: str = "Conversor de Documentos em textos"
     description: str = (
-        "Útil para extrair dados de documentos em vários formatos (PDF, TXT, HTML)"
+        "Útil para extrair dados de documentos ou sites em vários formatos (PDF, CSV, TXT, HTML)"
     )
     args_schema: Type[BaseModel] = File_to_Text_input
 

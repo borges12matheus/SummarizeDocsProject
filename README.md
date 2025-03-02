@@ -48,7 +48,6 @@ Stay tuned for updates and improvements! 🚀
                 ├── agents.yaml
                 └── tasks.yaml
 
-## Installation
 ## 🛠 Installation  
 
 1. **Clone the repository**  
