@@ -1,0 +1,20 @@
+read_task:
+  description: >
+    Receber receber o caminho {filepath} de um arquivo (PDF, TXT, CSV ou HTML) e extrair seu conteúdo.
+  expected_output: >
+    O conteúdo do arquivo convertido para texto.
+  agent: reader
+
+analysis_task:
+  description: >
+    Analisar o conteúdo e identificar os principais tópicos abordados.
+  expected_output: >
+    Uma lista estruturada em markdown com os tópicos principais do documento.
+  agent: analyst
+
+write_task:
+  description: >
+    Criar um resumo conciso baseado nos principais tópicos extraídos.
+  expected_output: >
+    Um resumo bem estruturado em markdown, destacando os principais pontos do documento.
+  agent: writer
