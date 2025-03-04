@@ -5,8 +5,16 @@ description = "summarize_docs_project using crewAI"
 authors = [{ name = "Matheus Borges", email = "borgesmatheus1201@gmail.com" }]
 requires-python = ">=3.10,<3.13"
 dependencies = [
+    "beautifulsoup4>=4.13.3",
     "crewai[tools]>=0.102.0,<1.0.0",
     "docling>=2.25.0",
+    "docling-parse>=3.4.0",
+    "markdown2>=2.5.3",
+    "pdfkit>=1.0.0",
+    "pymupdf>=1.25.3",
+    "requests>=2.32.3",
+    "streamlit>=1.42.2",
+    "weasyprint>=64.1",
 ]
 
 [project.scripts]

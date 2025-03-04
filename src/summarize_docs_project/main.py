@@ -11,17 +11,20 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 # Replace with inputs you want to test with, it will automatically
 # interpolate any tasks and agents information
 
-def run():
+def run(file_path):
     """
     Run the crew.
     """
     inputs = {
         #You can input a Doc path or URL
-        'filepath': "https://arxiv.org/pdf/2408.09869",
+        #'filepath': "https://arxiv.org/pdf/2408.09869",
+        'filepath': file_path,
     }
     
     try:
-        print(SummarizeDocsProject().crew().kickoff(inputs=inputs))
+        result = SummarizeDocsProject().crew().kickoff(inputs=inputs)
+        print(result)
+        return result
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
@@ -45,7 +48,6 @@ def replay():
     """
     try:
         SummarizeDocsProject().crew().replay(task_id=sys.argv[1])
-
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
 
@@ -62,5 +64,5 @@ def test():
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
 
-if __name__ == "__main__":
-    run()  # Só executa se o script for rodado diretamente
+# if __name__ == "__main__":
+#     run()  # Só executa se o script for rodado diretamente

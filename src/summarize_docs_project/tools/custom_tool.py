@@ -20,4 +20,4 @@ class File_to_Text(BaseTool):
         converter = DocumentConverter()
         process = converter.convert(filepath)
         text = process.document.export_to_text()
-        return text.split()
+        return text
