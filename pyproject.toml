@@ -9,12 +9,10 @@ dependencies = [
     "crewai[tools]>=0.102.0,<1.0.0",
     "docling>=2.25.0",
     "docling-parse>=3.4.0",
-    "markdown2>=2.5.3",
-    "pdfkit>=1.0.0",
-    "pymupdf>=1.25.3",
+    "litellm>=1.60.2",
+    "pypandoc>=1.15",
     "requests>=2.32.3",
     "streamlit>=1.42.2",
-    "weasyprint>=64.1",
 ]
 
 [project.scripts]

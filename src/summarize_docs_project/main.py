@@ -17,7 +17,6 @@ def run(file_path):
     """
     inputs = {
         #You can input a Doc path or URL
-        #'filepath': "https://arxiv.org/pdf/2408.09869",
         'filepath': file_path,
     }
     
@@ -29,13 +28,14 @@ def run(file_path):
         raise Exception(f"An error occurred while running the crew: {e}")
 
 
-def train():
+def train(file_path):
     """
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs"
-    }
+            #You can input a Doc path or URL
+            'filepath': file_path,
+        }
     try:
         SummarizeDocsProject().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
@@ -51,12 +51,13 @@ def replay():
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
 
-def test():
+def test(file_path):
     """
     Test the crew execution and returns the results.
     """
     inputs = {
-        "topic": "AI LLMs"
+        #You can input a Doc path or URL
+        'filepath': file_path,
     }
     try:
         SummarizeDocsProject().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)

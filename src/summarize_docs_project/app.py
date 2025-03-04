@@ -2,9 +2,8 @@ import streamlit as st
 import os
 import tempfile
 import requests
-# import markdown2
-# from weasyprint import HTML
 from summarize_docs_project.main import run
+import pypandoc
 import asyncio
 
 try:
@@ -65,17 +64,10 @@ if summary:
     filename_input = st.text_input("Escolha o nome do arquivo de saída (sem extensão):","resumo")
                         
     md_filename = f"{filename_input.strip()}.md" if filename_input.strip() else "resumo.md"
-    pdf_filename = f"{filename_input.strip()}.pdf" if filename_input.strip() else "resumo.pdf"
     
     with open(md_filename,"w", encoding="utf-8") as md_file:
         md_file.write(summary)
-        
-    # def markdown_to_pdf(md_text, filename):
-    #     html = markdown2.markdown(md_text)
-    #     HTML(string=html).write_pdf(filename)
-        
-    # markdown_to_pdf(summary, pdf_filename)
-                            
+                           
     with open(md_filename, "rb") as file:
         st.download_button(
             label="📥 Baixar Resumo em Markdown",
@@ -83,7 +75,9 @@ if summary:
             file_name=md_filename,
             mime="text/markdown"
         )
-        
+    
+    pdf_filename = pypandoc.convert_file(md_filename, 'pdf', outputfile=f"{filename_input.strip()}.pdf")
+       
     with open(pdf_filename, "rb") as file:
         st.download_button(
             label="📥 Baixar Resumo em PDF",
